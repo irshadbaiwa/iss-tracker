@@ -75,8 +75,34 @@ function mapISStoCanvas() {
     })
 }
 
+// Adjust the Navigator to place the Satellite in the center
+// of the WorldWindow.
+function showSatellite() {
+    // fetch ISS TLE
+    fetch('https://tle.ivanstanojevic.me/api/tle/25544')
+    .then(response => response.json())
+    .then(data => {
+        // Initialize the satellite record with this TLE
+        const satrec = satellite.twoline2satrec(
+            data.line1.trim(),
+            data.line2.trim(),
+        );
+        // Get the position of the satellite at the given date
+        const date = new Date();
+        const positionAndVelocity = satellite.propagate(satrec, date);
+        const gmst = satellite.gstime(date);
+        const iss_position = satellite.eciToGeodetic(positionAndVelocity.position, gmst);
+        // adjust navigator
+        wwd.navigator.lookAtLocation.latitude = iss_position.latitude;
+        wwd.navigator.lookAtLocation.longitude = iss_position.longitude;
+        wwd.navigator.range = 30000000; // 30,000km
+        wwd.redraw();
+    })
+}
+
 // map ISS
 mapISStoCanvas()
+showSatellite()
 // Get and map position of the ISS
 // after each 2 seconds
 setInterval(mapISStoCanvas, 2000);
