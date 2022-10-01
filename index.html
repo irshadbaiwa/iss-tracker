@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Space Station Tracker</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="canvasWrapper">
+            <canvas id="canvasOne" width="1024" height="768">
+                Your browser does not support HTML5 Canvas.
+            </canvas>
+        </div>
+        <div id="satellite-pos">
+            <b>International Space Station</b><br>
+            <span>Latitude: loading...</span><br>
+            <span>Longitude: loading...</span><br>
+            <span>Altitude: loading...</span><br>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://files.worldwind.arc.nasa.gov/artifactory/web/0.9.0/worldwind.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/satellite.js/4.0.0/satellite.min.js"></script>
+        <script src="main.js" type="text/javascript">
+        </script>
+    </body>
+</html>

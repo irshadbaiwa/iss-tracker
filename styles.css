@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+    background-color: black;
+}
+#canvasWrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#canvasOne {
+    z-index: 10;
+    max-height: 100vh;
+    width: '100%';
+    background-color: black;
+}
+#satellite-pos {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 100;
+    font-size: 0.8rem;
+}
