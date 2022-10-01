@@ -53,7 +53,7 @@ function mapISStoCanvas() {
         satelliteAttributes.labelAttributes.offset = new WorldWind.Offset(
             WorldWind.OFFSET_FRACTION, 0.5,
             WorldWind.OFFSET_FRACTION, 1.0);
-        satelliteAttributes.imageSource = '/images/iss/iss.png';
+        satelliteAttributes.imageSource = './images/iss/iss.png';
 
         // Map the position
         const position = new WorldWind.Position(iss_position.latitude, iss_position.longitude, iss_position.height*1000);
