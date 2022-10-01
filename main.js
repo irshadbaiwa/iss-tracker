@@ -68,9 +68,8 @@ function mapISStoCanvas() {
             <b>International Space Station</b><br>
             <span>Latitude: ${(iss_position.latitude).toPrecision(7).toString()} (rad)</span><br>
             <span>Longitude: ${(iss_position.longitude).toPrecision(7).toString()} (rad)</span><br>
-            <span>Altitude: ${Math.round(iss_position.height * 1000).toString()} (km)</span><br>
+            <span>Altitude: ${Math.round(iss_position.height).toPrecision(3).toString()} (km)</span><br>
         `
-
         satelliteMarkerLayer.addRenderable(issSatellite);
     })
 }
@@ -104,5 +103,5 @@ function showSatellite() {
 mapISStoCanvas()
 showSatellite()
 // Get and map position of the ISS
-// after each 2 seconds
-setInterval(mapISStoCanvas, 2000);
+// after each 3 seconds
+setInterval(mapISStoCanvas, 3000);
